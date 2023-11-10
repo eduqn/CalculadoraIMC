@@ -1,17 +1,40 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+// Project: IMC Calculator
+// Author: Eduardo Nascimento
+// Date: 11/10/2023
+import java.sql.SQLOutput;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        double altura = 1.83, peso = 140, imc;
+        System.out.println("------------------------------");
+        System.out.println("***** Calculadore de IMC *****");
+        System.out.println("------------------------------");
+        /*
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o sua altura (m): ");
+        altura = teclado.nextDouble();
+        System.out.print("Digite o seu peso atual (Kg): ");
+        peso = teclado.nextDouble();
+        */
+        imc = peso/Math.pow(altura,2);
+        System.out.printf("Seu IMC é: %.2f\n", +imc);
+        System.out.println("Seu IMC é: " +new DecimalFormat(".##").format(imc));
+        System.out.println("*Classificação para adultos acima de 20 anos");
+        if (imc < 18.5) {
+            System.out.println("Abaixo do peso!");
+            }else if (imc > 18.5 && imc <= 24.9){
+                System.out.println("Peso normal!");
+                } else if (imc > 24.9 && imc <= 29.9) {
+                    System.out.println("Pré-obesidade");
+                    } else if (imc > 29.9 && imc <= 34.9) {
+                        System.out.println("Obesidade Grau 1");
+                        } else if (imc > 34.9 && imc <= 39.9) {
+                            System.out.println("Obesidade grau 2");
+                            } else if (imc > 39.9) {
+                                System.out.println("Obesidade Grau 3");
+                            }
     }
 }
+
